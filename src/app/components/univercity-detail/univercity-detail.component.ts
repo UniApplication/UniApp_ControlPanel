@@ -13,7 +13,8 @@ export class UnivercityDetailComponent implements OnInit {
   constructor(private univercityDetailService:UnivercityDetailService) { }
 
   univercityDetails:UnivercityDetail[];
-  baseApiUrl=environment.baseApiUrl
+  baseApiUrl=environment.baseApiUrl;
+  filterText:"";
   ngOnInit(): void {
     this.getUnivercityDetails();
   }
@@ -21,7 +22,6 @@ export class UnivercityDetailComponent implements OnInit {
   getUnivercityDetails(){
     this.univercityDetailService.getUnivercityDetail().subscribe((response)=>{
       this.univercityDetails=response.data;
-      console.log(this.univercityDetails)
     })
   }
 }

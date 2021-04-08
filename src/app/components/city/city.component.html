@@ -1,0 +1,17 @@
+<div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="cityFilter"
+      [(ngModel)]="cityFilter"
+      placeholder="Arama ifadesi giriniz"
+
+    />
+  </div>
+  <table class="table table-hover" >
+    <tbody class="list-group">
+      <tr *ngFor="let city of cities |city:cityFilter">
+        <td style="font-weight: 600;font-size: 30px;">{{city.cityName }}</td>
+      </tr>
+    </tbody>
+  </table>

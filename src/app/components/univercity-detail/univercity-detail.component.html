@@ -1,34 +1,16 @@
-<!-- <div class="card">
- 
-       <table class="table">
-           <thead>
-               <tr> 
-                   <th>Üniversite Resmi</th>
-                   <th>Üniversite Adı</th>
-                   <th>Üniversite Açıklaması</th>
-                   <th>Üniversite Rektörü</th>
-                   <th>Üniversitenin Bulunduğu Şehir</th>
-                   <th>Üniversite Yıldız Sayısı</th>
-                  
-               </tr>
-           </thead>
-           <tbody>
-               <tr *ngFor="let univercity of univercityDetails" >  
-                   <img src="{{baseApiUrl}}{{univercity.univercityImage}}" style="width: 100px;height: 100px;">
-                   <td>{{univercity.univercityName}}</td>
-                   <td>{{univercity.univercityDescription}}</td>
-                   <td>{{univercity.univercityRector}}</td>
-                   <td>{{univercity.cityName}}</td>
-                   <td>{{univercity.StarCount}}</td>
-                 
-               </tr>
-           </tbody>
-       </table> -->
-   
+       <br>
+       <div class="mb-3">
+           <input
+             type="text"
+             class="form-control"
+             id="filterText"
+             [(ngModel)]="filterText"
+             placeholder="Arama ifadesi giriniz"
+           />
    <div
        class="d-flex flex-wrap justify-content-center justify-content-xl-start"
        style="gap: 12px;margin-top: 20px;">
-       <div *ngFor="let univercity of univercityDetails" class="card" style="width: 300px;">
+       <div *ngFor="let univercity of univercityDetails |univercity:filterText" class="card" style="width: 300px;">
          <div >
          </div>
          <div class="card-header" style="text-align: center;">
