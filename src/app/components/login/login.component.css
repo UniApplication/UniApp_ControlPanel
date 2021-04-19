@@ -22,8 +22,8 @@ body {
   font-weight: 400;
 }
 
-.form-signin .form-floating:focus-within {
-  z-index: 2;
+.form-floating {
+  padding-top:10px;
 }
 
 .form-signin input[type="email"] {

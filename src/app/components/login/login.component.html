@@ -3,17 +3,20 @@
     <main class="form-signin">
       <form [formGroup]="loginForm" >
         <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
-    
         <div class="form-floating">
-          <input formControlName="email" [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">E posta</label>
+          <input formControlName="email" [(ngModel)]="email" 
+          type="email" class="form-control" id="floatingInput" 
+          placeholder="isim@ornek.com">
         </div>
         <div class="form-floating">
-          <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Parola</label>
+          <input formControlName="password" 
+          type="password" class="form-control" 
+          id="floatingPassword" placeholder="şifre">
+          
         </div>
     
         <button class="w-100 btn btn-lg btn-primary" (click)="login()">Giriş yap</button>
+        <label routerLink="/register">Üye Değil Misin?<b>Kayıt Ol</b></label>
       </form>
     </main>
     

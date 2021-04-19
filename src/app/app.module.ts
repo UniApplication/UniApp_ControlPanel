@@ -18,6 +18,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { CityComponent } from './components/city/city.component';
 import { UnivercityPipe } from './pipes/univercity.pipe';
 import { CityPipe } from './pipes/city.pipe';
+import { MainComponent } from './components/main/main.component';
+import { OnlyunivercityComponent } from './components/onlyunivercity/onlyunivercity.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { CityPipe } from './pipes/city.pipe';
     CityComponent,
     UnivercityPipe,
     CityPipe,
+    MainComponent,
+    OnlyunivercityComponent,
  
   ],
   imports: [

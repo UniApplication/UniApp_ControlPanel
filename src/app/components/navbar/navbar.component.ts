@@ -8,10 +8,15 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent implements OnInit {
 
+  userName=environment.userName
   constructor() { }
 
-  userName=environment.userName;
   ngOnInit(): void {
+    this.getUserInfo()
   }
   
+  getUserInfo(){
+    let user:any=localStorage.getItem("userId")
+    console.log(user)
+  }
 }
