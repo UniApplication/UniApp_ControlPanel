@@ -20,6 +20,8 @@ import { UnivercityPipe } from './pipes/univercity.pipe';
 import { CityPipe } from './pipes/city.pipe';
 import { MainComponent } from './components/main/main.component';
 import { OnlyunivercityComponent } from './components/onlyunivercity/onlyunivercity.component';
+import { UnivercityNavbarComponent } from './components/univercity-navbar/univercity-navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { OnlyunivercityComponent } from './components/onlyunivercity/onlyuniverc
     CityPipe,
     MainComponent,
     OnlyunivercityComponent,
+    UnivercityNavbarComponent,
+    ProfileComponent,
  
   ],
   imports: [

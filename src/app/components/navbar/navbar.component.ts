@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent implements OnInit {
 
-  userName=environment.userName
   userInfo:UserModel; 
   user:any=localStorage.getItem("userId")
   constructor(private userService:UserService) { }
