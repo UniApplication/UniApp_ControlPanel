@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from 'src/app/models/userModel';
+import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,14 +11,22 @@ import { environment } from 'src/environments/environment';
 export class NavbarComponent implements OnInit {
 
   userName=environment.userName
-  constructor() { }
+  userInfo:UserModel; 
+  user:any=localStorage.getItem("userId")
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    this.getUserInfo()
+    if(!this.user){
+
+    }else{
+      this.getUserInfo()
+    }
+    
   }
   
   getUserInfo(){
-    let user:any=localStorage.getItem("userId")
-    console.log(user)
+    this.userService.getUserInfo(parseInt(this.user)).subscribe(response=>{
+      this.userInfo=response.data
+    })
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UnivercityDetail } from 'src/app/models/univercityDetailModel';
 import { UnivercityDetailService } from 'src/app/services/univercity-detail.service';
 import { environment } from 'src/environments/environment';
@@ -10,18 +11,30 @@ import { environment } from 'src/environments/environment';
 })
 export class UnivercityDetailComponent implements OnInit {
 
-  constructor(private univercityDetailService:UnivercityDetailService) { }
+  constructor(private univercityDetailService:UnivercityDetailService,private activatedRoute:ActivatedRoute) { }
 
   univercityDetails:UnivercityDetail[];
   baseApiUrl=environment.baseApiUrl;
   filterText:"";
   ngOnInit(): void {
-    this.getUnivercityDetails();
+    this.activatedRoute.params.subscribe(params => {
+      if(params["cityId"]){
+        this.getUnivercityById(params["cityId"]);
+      }else{
+         this.getUnivercityDetails();
+      }
+    });
+   
   }
 
   getUnivercityDetails(){
     this.univercityDetailService.getUnivercityDetail().subscribe((response)=>{
       this.univercityDetails=response.data;
+    })
+  }
+  getUnivercityById(cityId:Number){
+    this.univercityDetailService.getUnivercityDetailByCity(cityId).subscribe(response => {
+      this.univercityDetails = response.data;
     })
   }
 }

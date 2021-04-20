@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:"register", component:RegisterComponent},
   {path:"main", component:MainComponent ,children:[
     {path:"",component:UnivercityDetailComponent},
+    {path:"univercities/:cityId",component:UnivercityDetailComponent},
     {path:"onlyunivercity/:univercityId",component:OnlyunivercityComponent}
   ] },
   

@@ -24,4 +24,9 @@ export class UnivercityDetailService {
     let newPath=environment.apiUrl+"univercities/getbyiddetail?Id="+univercityId;
     return this.httpClient.get<SingleResponseModel<UnivercityDetail>>(newPath);
   }
+  getUnivercityDetailByCity(cityId:Number):Observable<ListResponseModel<UnivercityDetail>>{
+
+    let newPath=environment.apiUrl+"univercities/getdetailbycityid?Id="+cityId;
+    return this.httpClient.get<ListResponseModel<UnivercityDetail>>(newPath);
+  }
 }

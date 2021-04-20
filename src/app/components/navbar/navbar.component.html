@@ -16,8 +16,9 @@
             </ul>
           </li>
         </ul>
-      </div><form class="d-flex">
-         <a class="navbar-brand" href="/">Hoşgeldiniz {{userName}}</a>
+      </div>
+      <form *ngIf="user" class="d-flex">
+         <a  class="navbar-brand"  href="/">Hoşgeldiniz {{userInfo.firstName+" "+userInfo.lastName}} </a>
         </form>
     </div>
   </nav>
