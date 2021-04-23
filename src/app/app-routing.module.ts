@@ -3,21 +3,31 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { OnlyunivercityComponent } from './components/onlyunivercity/onlyunivercity.component';
+import { OnlyunivercityinfoComponent } from './components/onlyunivercityinfo/onlyunivercityinfo.component';
+import { PostmainComponent } from './components/postmain/postmain.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UnivercityDetailComponent } from './components/univercity-detail/univercity-detail.component';
 import { UnivercityNavbarComponent } from './components/univercity-navbar/univercity-navbar.component';
+import { UnivercityaddComponent } from './components/univercityadd/univercityadd.component';
+import { UnivercitycommentComponent } from './components/univercitycomment/univercitycomment.component';
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:'/login'},
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"main", component:MainComponent ,children:[
-    {path:"",component:UnivercityNavbarComponent,children:[
+    {path:"profile/:userId", component:ProfileComponent},
+    {path:"", component:PostmainComponent},
+    {path:"add", component:UnivercityaddComponent},
+    {path:"onlyunivercity/:univercityId",component:OnlyunivercityComponent,children:[
+      {path:"",component:OnlyunivercityinfoComponent,pathMatch:"full"},
+      {path:"comments",component:UnivercitycommentComponent},
+    ] },
+    {path:"univercity",component:UnivercityNavbarComponent,children:[
       {path:"",component:UnivercityDetailComponent},
       {path:"univercities/:cityId",component:UnivercityDetailComponent},
-      {path:"onlyunivercity/:univercityId",component:OnlyunivercityComponent}  
     ]},
-    {path:"profile/:userId", component:ProfileComponent},
+
   ] },
   
   

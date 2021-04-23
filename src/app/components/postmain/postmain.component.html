@@ -1,0 +1,25 @@
+<form [formGroup]="PostAddForm">
+  <div class="card-header">
+    <label for="uniPost" class="form-label">sabit</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="uniPost"
+      id="uniPost"
+      placeholder="Paylaşım Giriniz"
+    />
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-fill btn-success" (click)="postAdd()">Ekle</button>
+  </div>
+</form>
+
+<div *ngFor="let post of posts" style="margin: 4px; padding-top: 10px">
+  <div class="card">
+    <div class="card-header">{{ post.uniName }}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{ post.uniPost }}</h5>
+    </div>
+  </div>
+</div>
+<div class="card-footer text-muted"></div>

@@ -22,6 +22,10 @@ import { MainComponent } from './components/main/main.component';
 import { OnlyunivercityComponent } from './components/onlyunivercity/onlyunivercity.component';
 import { UnivercityNavbarComponent } from './components/univercity-navbar/univercity-navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PostmainComponent } from './components/postmain/postmain.component';
+import { UnivercityaddComponent } from './components/univercityadd/univercityadd.component';
+import { UnivercitycommentComponent } from './components/univercitycomment/univercitycomment.component';
+import { OnlyunivercityinfoComponent } from './components/onlyunivercityinfo/onlyunivercityinfo.component';
 
 
 @NgModule({
@@ -39,6 +43,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     OnlyunivercityComponent,
     UnivercityNavbarComponent,
     ProfileComponent,
+    PostmainComponent,
+    UnivercityaddComponent,
+    UnivercitycommentComponent,
+    OnlyunivercityinfoComponent,
  
   ],
   imports: [

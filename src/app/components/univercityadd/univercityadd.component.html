@@ -1,0 +1,52 @@
+<br>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+           <div class="card-header">
+            <h5 class="title">Üniversite Ekle</h5>
+            <div class="card-body">
+                <form [formGroup]="UnivercityAddForm">
+                        
+                        <div class="mb-3">
+                            <label for="univercityName">Üniversite Adı</label>
+                       <div  class="form-group">
+                            <input type="text" id="univercityName" formControlName="univercityName" class="form-control" placeholder="Üniversite Adı"/>
+                        </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="univercityRector">Üniversite Rektörü</label>
+                       <div  class="form-group">
+                            <input type="text" id="univercityRector" formControlName="univercityRector" class="form-control" placeholder="Üniversite Rektörü"/>
+                        </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cityId">Şehir Id</label>
+                       <div  class="form-group">
+                            <input type="number" id="cityId" formControlName="cityId" class="form-control" placeholder="Şehir Id"/>
+                        </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="starCount">Yıldız Sayısı</label>
+                       <div  class="form-group">
+                            <input type="number" id="starCount" formControlName="starCount" class="form-control" placeholder="Yıldız Sayısı"/>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="univercityDescription">Üniversite Açıklaması</label>
+                       <div  class="form-group">
+                            <input type="text" id="univercityDescription" formControlName="univercityDescription" class="form-control" placeholder="Üniversite Açıklaması"/>
+                        </div>
+                        </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-success" (click)="add()">Ekle</button>
+            </div>
+            </div>
+        </div>
+        
+   </div>
+</div>
