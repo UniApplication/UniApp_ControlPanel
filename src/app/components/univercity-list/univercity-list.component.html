@@ -1,0 +1,42 @@
+<br>
+<div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="colorFilter"
+      placeholder="Arama ifadesi giriniz"
+      [(ngModel)]="filterText"
+    />
+  </div>
+  <table class="table table-dark table-hover  ">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Üniversite Adı</th>
+        <th>Yıldız Sayısı</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let univercity of univercities |univercitylistpipe:filterText">
+        <td>{{ univercity.id }}</td>
+        <td>{{univercity.univercityName}}</td>
+        <td>{{ univercity.starCount}}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-dark btn-sm"
+            routerLink="/main/univercityupdate/{{univercity.id}}"
+            ><i class="bi bi-pencil-square" ></i> Güncelle</button
+          >
+        </td>
+        <td>
+          <a
+            type="button"
+            (click)="univercityDelete(univercity)"
+            class="btn btn-dark btn-sm"
+            ><i class="bi bi-pencil-square"></i> Sil</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>

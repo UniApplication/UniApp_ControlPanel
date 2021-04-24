@@ -1,0 +1,18 @@
+<table *ngIf="users" class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyad</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,29 +1,66 @@
-<body class="text-center">
-    
-    <main class="form-signin">
-      <form [formGroup]="registerForm" >
-        <h1 class="h3 mb-3 fw-normal">Kayıt Ol</h1>
-    
-        <div class="form-floating"><label for="floatingInput">E posta</label>
-          <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="adınız@ornek.com">
-          
+<div class="image" style="background-image: url(assets/img/bg.jpg);">
+<div class="container col-xl-10 col-xxl-8 px-4 py-5" style="justify-content: center;margin-top: 10px;">
+  <div class="row align-items-center g-5 py-5">
+    <div class="col-lg-7  ">
+      <h1 class="display-4 fw-bold lh-1 mb-3">ÜniApp</h1>
+      <p class="col-lg-10 fs-4">Hemen kaydolarak üniversitelere göz atın </p>
+      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="assets/img/login.png" class="w-100" alt="...">
+    </div>
+  
+    <div class="col-10 mx-auto col-lg-5" >
+      <h5 >Kayıt Ol</h5>
+      <form [formGroup]="registerForm" class="p-5 border rounded-3 bg-light">
+        <div class="form-floating mb-3">
+          <input
+            formControlName="firstName"
+            type="text"
+            class="form-control"
+            placeholder="Ad"
+          />
         </div>
-        <div class="form-floating"><label for="floatingPassword">Parola</label>
-          <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Şifre">
-          
+        <div class="form-floating mb-3">
+          <input
+            formControlName="lastName"
+            type="text"
+            class="form-control"
+            placeholder="Soyad"
+          />
         </div>
-        <div class="form-floating"><label for="firstNameInput">Adınız</label>
-            <input formControlName="firstName" type="firstName" class="form-control" id="firstNameInput" placeholder="Adınız" >
-            
-          </div>
-          <div class="form-floating"><label for="lastNameInput">Soyadınız</label>
-            <input formControlName="lastName" type="lastName" class="form-control" id="lastNameInput" placeholder="Soyadınız" >
-            
-          </div>
-        <button class="w-100 btn btn-lg btn-primary" (click)="register()">Kayıt Ol</button>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="E-Posta"
+          />
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Parola"
+          />
+        </div>
+        <div class="checkbox mb-3"></div>
+        <button
+          class="w-100 btn btn-lg btn-primary"
+          (click)="register()"
+          type="submit"
+        >
+          Kayıt Ol
+        </button>
+        <hr class="my-4" />
+        <p class="card-text bg-light" style="transform: rotate(0)">
+          Zaten bir hesabın var mı?
+          <a routerLink="/login" class="text-primary stretched-link"
+            >Giriş Yap</a
+          >'a tıklayarak hemen giriş yapın.
+        </p>
       </form>
-    </main>
-    
-    
-        
-      </body>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,5 +1,5 @@
 export interface Univercity{
-    univercityId:number,
+    id:number,
     univercityName:string,
     univercityDescription:string,
     univercityRector:string,

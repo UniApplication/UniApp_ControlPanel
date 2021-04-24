@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
   email="";
+  loginImage:string="../img/login.png";
   ngOnInit(): void {
   this.createLoginForm();
   }

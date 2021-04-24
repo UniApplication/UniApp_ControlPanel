@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 
 import {ToastrModule} from 'ngx-toastr';
@@ -26,6 +26,11 @@ import { PostmainComponent } from './components/postmain/postmain.component';
 import { UnivercityaddComponent } from './components/univercityadd/univercityadd.component';
 import { UnivercitycommentComponent } from './components/univercitycomment/univercitycomment.component';
 import { OnlyunivercityinfoComponent } from './components/onlyunivercityinfo/onlyunivercityinfo.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { UnivercityListComponent } from './components/univercity-list/univercity-list.component';
+import { UnivercitylistpipePipe } from './pipes/univercitylistpipe.pipe';
+import { UnivercitylistUpdateComponent } from './components/univercitylist-update/univercitylist-update.component';
 
 
 @NgModule({
@@ -47,6 +52,10 @@ import { OnlyunivercityinfoComponent } from './components/onlyunivercityinfo/onl
     UnivercityaddComponent,
     UnivercitycommentComponent,
     OnlyunivercityinfoComponent,
+    UserSettingsComponent,
+    UnivercityListComponent,
+    UnivercitylistpipePipe,
+    UnivercitylistUpdateComponent,
  
   ],
   imports: [
@@ -63,7 +72,9 @@ import { OnlyunivercityinfoComponent } from './components/onlyunivercityinfo/onl
       
       })
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

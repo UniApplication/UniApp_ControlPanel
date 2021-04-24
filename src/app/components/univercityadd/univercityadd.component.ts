@@ -21,6 +21,7 @@ export class UnivercityaddComponent implements OnInit {
     private univercityDetailService:UnivercityDetailService) { }
 
   ngOnInit(): void {
+
     this.createUnivercityAddForm()
   }
   createUnivercityAddForm() {
