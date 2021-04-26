@@ -14,6 +14,7 @@ import { UnivercityaddComponent } from './components/univercityadd/univercityadd
 import { UnivercitycommentComponent } from './components/univercitycomment/univercitycomment.component';
 import { UnivercitylistUpdateComponent } from './components/univercitylist-update/univercitylist-update.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:'/login'},
@@ -25,7 +26,8 @@ const routes: Routes = [
     {path:"univercityadd", component:UnivercityaddComponent},
     {path:"univercitylist", component:UnivercityListComponent},
     {path:"univercityupdate/:univercityId", component:UnivercitylistUpdateComponent},
-    {path:"useradd", component:UserSettingsComponent},
+    {path:"usersettings", component:UserSettingsComponent},
+    {path:"usersettings/:userId", component:UserUpdateComponent},
     {path:"onlyunivercity/:univercityId",component:OnlyunivercityComponent,children:[
       {path:"",component:OnlyunivercityinfoComponent,pathMatch:"full"},
       {path:"comments",component:UnivercitycommentComponent},

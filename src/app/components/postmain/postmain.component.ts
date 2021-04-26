@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { PostDetail } from 'src/app/models/postDetail';
+import { PostModel } from 'src/app/models/postModel';
 import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-postmain',
@@ -53,6 +54,15 @@ postAdd(){
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
+  
+}
+postDelete(post:PostDetail){
+    this.postService.postDelete(post).subscribe(response=>{
+      this.toastrService.info(response.message)
+      window.location.reload();
+    },responseError=>{
+      this.toastrService.info(responseError.message)
+    })
   
 }
 getPosts(){

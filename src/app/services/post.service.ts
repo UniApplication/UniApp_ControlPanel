@@ -19,6 +19,11 @@ export class PostService {
     let newPath=environment.apiUrl+"posts/add";
     return this.httpClient.post<ResponseModel>(newPath,post)
   }
+  postDelete(post:PostDetail):Observable<ResponseModel>{
+
+    let newPath=environment.apiUrl+"posts/delete";
+    return this.httpClient.post<ResponseModel>(newPath,post)
+  }
   postGetAll():Observable<ListResponseModel<PostDetail>>{
 
     let newPath=environment.apiUrl+"posts/getalldetail";

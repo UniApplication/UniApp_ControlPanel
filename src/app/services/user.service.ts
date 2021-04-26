@@ -2,9 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ClaimModel } from '../models/claimModel';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/ResponseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { UserModel } from '../models/userModel';
+import { UserOperationModel } from '../models/userOperationClaim';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +28,22 @@ export class UserService {
     return this.httpClient.get<ListResponseModel<UserModel>>(newPath);
     
   }
+  getUserDelete(user:UserModel):Observable<ResponseModel>{
+    let newPath=environment.apiUrl+"users/delete";
+    return this.httpClient.post<ResponseModel>(newPath,user);
+    
+  }
+  getClaims(userId:number):Observable<ListResponseModel<ClaimModel>>{
+    let newPath=environment.apiUrl+"users/getclaims?userId="+userId;
+    return this.httpClient.get<ListResponseModel<ClaimModel>>(newPath);
+  }
+  getAllClaims():Observable<ListResponseModel<ClaimModel>>{
+    let newPath=environment.apiUrl+"users/getallclaims";
+    return this.httpClient.get<ListResponseModel<ClaimModel>>(newPath);
+  }
+  updateClaim(userOp:UserOperationModel):Observable<ResponseModel>{
+    let newPath=environment.apiUrl+"users/postclaim";
+    return this.httpClient.post<ResponseModel>(newPath,userOp);
+  }
+
 }

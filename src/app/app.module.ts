@@ -31,6 +31,7 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { UnivercityListComponent } from './components/univercity-list/univercity-list.component';
 import { UnivercitylistpipePipe } from './pipes/univercitylistpipe.pipe';
 import { UnivercitylistUpdateComponent } from './components/univercitylist-update/univercitylist-update.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { UnivercitylistUpdateComponent } from './components/univercitylist-updat
     UnivercityListComponent,
     UnivercitylistpipePipe,
     UnivercitylistUpdateComponent,
+    UserUpdateComponent,
  
   ],
   imports: [

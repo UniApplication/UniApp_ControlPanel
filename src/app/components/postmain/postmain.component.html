@@ -16,10 +16,15 @@
 
 <div *ngFor="let post of posts" style="margin: 4px; padding-top: 10px">
   <div class="card">
-    <div class="card-header">{{ post.uniName }}</div>
+    <div class="flex-container">
+    <div class="card-header">{{ post.uniName }} 
+      <button  class="btn btn-primary " (click)="postDelete(post)">Sil</button>
+</div></div>
     <div class="card-body">
       <h5 class="card-title">{{ post.uniPost }}</h5>
     </div>
   </div>
 </div>
 <div class="card-footer text-muted"></div>
+
+
