@@ -14,6 +14,7 @@ export class UnivercitylistUpdateComponent implements OnInit {
 
   UnivercityUpdateForm: FormGroup;
   univercity:Univercity;
+  selectedFile:File=null;
 
   constructor(private formBuilder: FormBuilder,
     private toastrService: ToastrService,
@@ -30,6 +31,13 @@ export class UnivercitylistUpdateComponent implements OnInit {
     });
   }
 
+  onFileSelected(){
+   
+  }
+  onUpload(){
+    const fd =new FormData();
+    fd.append('Image',this.selectedFile,this.selectedFile.name);
+  }
   createUnivercityAddForm() {
     this.UnivercityUpdateForm = this.formBuilder.group({
       id:[this.univercity.id,Validators.required],

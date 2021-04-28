@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { OnlyunivercityComponent } from './components/onlyunivercity/onlyunivercity.component';
@@ -28,9 +29,10 @@ const routes: Routes = [
     {path:"univercityupdate/:univercityId", component:UnivercitylistUpdateComponent},
     {path:"usersettings", component:UserSettingsComponent},
     {path:"usersettings/:userId", component:UserUpdateComponent},
+    {path:"about", component:AboutComponent},
     {path:"onlyunivercity/:univercityId",component:OnlyunivercityComponent,children:[
       {path:"",component:OnlyunivercityinfoComponent,pathMatch:"full"},
-      {path:"comments",component:UnivercitycommentComponent},
+      {path:"comments/:univercityId",component:UnivercitycommentComponent},
     ] },
     {path:"univercity",component:UnivercityNavbarComponent,children:[
       {path:"",component:UnivercityDetailComponent},

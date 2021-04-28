@@ -8,10 +8,13 @@
         <a class="nav-link active" routerLink="/main/onlyunivercity/{{univercity.univercityId}}" aria-current="true">Genel Bilgiler</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/main/onlyunivercity/{{univercity.univercityId}}/comments">Yorumlar</a>
+        <a class="nav-link" routerLink="/main/onlyunivercity/{{univercity.univercityId}}/comments/{{univercity.univercityId}}">Yorumlar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled"  tabindex="-1" aria-disabled="true">Disabled</a>
+        <a *ngIf="isFollowing; else elseBlock" (click)="unFollow()" class="nav-link disabled"  tabindex="-1" aria-disabled="true">Takip Etme</a>
+        <ng-template #elseBlock>
+          <a class="nav-link " (click)="follow()"  tabindex="-1" aria-disabled="true">Takip Et</a>
+        </ng-template>
       </li>
     </ul> 
   </div>

@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
       password:["",Validators.required],
     })
   }
+  test(){
+    return true;
+  }
   login(){
     if(this.loginForm.valid){
       let loginModel=Object.assign({},this.loginForm.value)

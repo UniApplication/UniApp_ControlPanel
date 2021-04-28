@@ -1,26 +1,34 @@
-<br>
-<div class="content">
-    <div class="col-md-12">
-        <div class="card">
-           <div class="card-header">
-
-            <div *ngFor="let userclaim of userclaims" style="margin: 4px; padding-top: 10px">
-                <div  class="card">
-                  <div class="card-header">{{ userclaim.name}}</div>
-                </div>
-              </div>
-
-              <h5 class="title">Genel Yetkileri</h5>
-              <div *ngFor="let claim of claims" style="margin: 4px; padding-top: 10px">
-                <div class="card">
-                  <div  [class]="getCurrentClaim(claim)" (click)="setCurrentClaim(claim)">{{ claim.name}}</div>
-                </div>
-              </div>
-            <div class="card-footer">
-                <button class="btn btn-fill btn-success" (click)="userClaimUpdate()">Yetkiyi Güncelle</button>
-            </div>
-            </div>
+<br />
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Kullanıcı Yetkileri</h5>
+        <div
+          *ngFor="let userclaim of userclaims"
+          style="margin: 4px; padding-top: 10px"
+        >
+          <div class="card">
+            <div class="card-header">{{ userclaim.name }}</div>
+          </div>
         </div>
-        
-   </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-6">
+    <h5 class="title">Genel Yetkileri</h5>
+    <div *ngFor="let claim of claims" style="margin: 4px; padding-top: 10px">
+      <div class="card">
+        <div [class]="getCurrentClaim(claim)" (click)="setCurrentClaim(claim)">
+          {{ claim.name }}
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-fill btn-success" (click)="userClaimUpdate()">
+        Yetkiyi Güncelle
+      </button>
+    </div>
+  </div>
 </div>

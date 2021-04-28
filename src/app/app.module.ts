@@ -32,6 +32,7 @@ import { UnivercityListComponent } from './components/univercity-list/univercity
 import { UnivercitylistpipePipe } from './pipes/univercitylistpipe.pipe';
 import { UnivercitylistUpdateComponent } from './components/univercitylist-update/univercitylist-update.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
     UnivercitylistpipePipe,
     UnivercitylistUpdateComponent,
     UserUpdateComponent,
+    AboutComponent,
  
   ],
   imports: [

@@ -56,6 +56,7 @@ postAdd(){
     }
   
 }
+
 postDelete(post:PostDetail){
     this.postService.postDelete(post).subscribe(response=>{
       this.toastrService.info(response.message)

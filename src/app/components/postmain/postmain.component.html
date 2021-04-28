@@ -1,30 +1,36 @@
-<form [formGroup]="PostAddForm">
-  <div class="card-header">
-    <label for="uniPost" class="form-label">sabit</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="uniPost"
-      id="uniPost"
-      placeholder="Paylaşım Giriniz"
-    />
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-fill btn-success" (click)="postAdd()">Ekle</button>
-  </div>
-</form>
 
-<div *ngFor="let post of posts" style="margin: 4px; padding-top: 10px">
-  <div class="card">
-    <div class="flex-container">
-    <div class="card-header">{{ post.uniName }} 
-      <button  class="btn btn-primary " (click)="postDelete(post)">Sil</button>
-</div></div>
-    <div class="card-body">
-      <h5 class="card-title">{{ post.uniPost }}</h5>
+
+
+<br>
+<!-- Main Body -->
+<section>
+  <br>
+    <div class="container">
+      <form [formGroup]="PostAddForm">
+        <div class="card-header">
+          <label for="uniPost" class="form-label"><h5>Gönderi Paylaşma</h5></label>
+ 
+          <textarea type="text" name="msg" id="uniPost"
+           msg cols="30" rows="5" 
+           class="form-control" formControlName="uniPost" style="background-color: rgb(255, 255, 255);">
+          </textarea>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-success" style="border-radius: 15px;" (click)="postAdd()">Paylaş</button>
+        </div>
+      </form>
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <div *ngFor="let post of posts" class="comment mt-4 text-justify float-left"> <img src="assets/img/default-user-image.png" alt="" class="rounded-circle" width="40" height="40">
+                    <h4 style="margin-left: 10px;">{{post.uniName}}</h4><span>- 20 October, 2018</span> <br><br>
+                    <p style="width: 900px;height: 50px;" >{{post.uniPost}}</p><button (click)="postDelete(post)" 
+                    style="margin-left: 930px;margin-bottom: 20px;padding-left: 20px;padding-right: 20px;background-color: red;color: white;"><b>Paylaşım Sil</b></button> 
+                </div>
+                
+            </div>
+            
+        </div>
     </div>
-  </div>
-</div>
-<div class="card-footer text-muted"></div>
+</section>
 
 
