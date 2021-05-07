@@ -1,4 +1,5 @@
 export interface UserOperationModel{
+    id:number;
     userId:number;
-    operationClaimId:number;
+    claimName:string;
 }

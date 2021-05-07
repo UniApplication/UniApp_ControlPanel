@@ -9,7 +9,12 @@
           style="margin: 4px; padding-top: 10px"
         >
           <div class="card">
-            <div class="card-header">{{ userclaim.name }}</div>
+            <div class="card-header">{{ userclaim.claimName }}
+               <button style="float: right;" 
+               class="btn btn-danger"
+               (click)="deleteClaim(userclaim)"
+               >Yetki Kaldır</button> 
+              </div>
           </div>
         </div>
       </div>

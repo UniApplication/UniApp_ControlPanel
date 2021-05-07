@@ -3,7 +3,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h5 class="title">Üniversite Ekle</h5>
+        <h5 class="title">Üniversite Güncelle</h5>
         <div class="card-body">
           <form *ngIf="univercity" [formGroup]="UnivercityUpdateForm">
             <div class="mb-3">
@@ -69,12 +69,6 @@
                 />
               </div>
             </div>
-            <div class="mb-3">
-              <label for="formFile" class="form-label"
-                >Default file input example</label
-              >
-              <input class="form-control" type="file" id="formFile" />
-            </div>
           </form>
         </div>
         <div class="card-footer">
@@ -82,7 +76,25 @@
             Güncelle
           </button>
         </div>
-      </div>
+
     </div>
+    <form [formGroup] = "UnivercityImageAddForm" class="form col-md-10">
+      <div class="mb-3">
+          <input
+            type="file"
+            id="univercityImageAdd"
+            name="univercityImageAdd"
+            accept="image/x-png, image/jpeg"
+            class="form-control"
+            formControlName="Image"
+            (change)="onFileSelected($event)"
+          />
+        </div>
+  </form>
+  <div class="col-md-2">
+      <button type="submit" class="btn btn-primary" (click)="addImage()">
+        Yukle
+      </button>
+  </div>
   </div>
 </div>

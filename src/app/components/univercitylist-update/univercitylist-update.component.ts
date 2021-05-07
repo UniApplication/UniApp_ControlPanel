@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Univercity } from 'src/app/models/univercity';
+import { UnivercityImageModel } from 'src/app/models/univercityImageModel';
 import { UnivercityDetailService } from 'src/app/services/univercity-detail.service';
 
 @Component({
@@ -14,6 +15,9 @@ export class UnivercitylistUpdateComponent implements OnInit {
 
   UnivercityUpdateForm: FormGroup;
   univercity:Univercity;
+  univercityImage:UnivercityImageModel;
+  UnivercityImageAddForm : FormGroup;
+  imageDataToUpload : any;
   selectedFile:File=null;
 
   constructor(private formBuilder: FormBuilder,
@@ -26,19 +30,58 @@ export class UnivercitylistUpdateComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if(params["univercityId"]){
         this.getOnlyUnivercity(params["univercityId"]);
+        this.getUnivercityImage(params["univercityId"]);
+        this.createImageAddForm()
       
       }  
     });
   }
 
-  onFileSelected(){
-   
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file.size > 10 * Math.pow(1024, 2)) {
+      this.toastrService.error(
+        `Sectiginiz dosya 10MB'tan daha buyuk olamaz: ${(
+          Math.round((file.size / Math.pow(1024, 2)) * 100) / 100
+        ).toFixed(2)}MB`,
+        'Hata'
+      );
+    } else {
+      this.imageDataToUpload = file;
+    }
   }
-  onUpload(){
-    const fd =new FormData();
-    fd.append('Image',this.selectedFile,this.selectedFile.name);
+  addImage(): void {
+    if (this.UnivercityImageAddForm.valid) {
+      const formData: FormData = new FormData();
+      formData.append('Image', this.imageDataToUpload);
+      formData.append('univercityId',this.univercityImage.univercityId.toString());
+      this.univercityDetailService.addImage(formData).subscribe(
+        () => {
+          this.toastrService.success('Gorsel eklendi', 'Basarili');
+          
+        },
+        (responseError) => {
+          if (responseError.error.Errors.length > 0) {
+            for (let i = 0; i < responseError.error.Errors.length; i++) {
+              this.toastrService.error(
+                responseError.error.Errors[i].ErrorMessage,
+                'Doğrulama hatası'
+              );
+            }
+          }
+        }
+      );
+    } else {
+      this.toastrService.error('Formunuz eksik', 'Dikkat');
+    }
   }
-  createUnivercityAddForm() {
+  createImageAddForm():void{
+    this.UnivercityImageAddForm = this.formBuilder.group({
+      Image : ["",Validators.required],
+    });
+  }
+  
+  createUnivercityUpdateForm() {
     this.UnivercityUpdateForm = this.formBuilder.group({
       id:[this.univercity.id,Validators.required],
       univercityName: [this.univercity.univercityName, Validators.required],
@@ -51,7 +94,13 @@ export class UnivercitylistUpdateComponent implements OnInit {
   getOnlyUnivercity(univercityId:Number){
     this.univercityDetailService.getOnlyUnivercity(univercityId).subscribe(response => {
       this.univercity = response.data;
-      this.createUnivercityAddForm()
+      this.createUnivercityUpdateForm()
+    })
+  }
+  getUnivercityImage(univercityId:Number){
+    this.univercityDetailService.getUnivercityImage(univercityId).subscribe(response => {
+      this.univercityImage = response.data;
+      
     })
   }
   univercityUpdate() {

@@ -13,7 +13,7 @@
       <li class="nav-item">
         <a *ngIf="isFollowing; else elseBlock" (click)="unFollow()" class="nav-link disabled"  tabindex="-1" aria-disabled="true">Takip Etme</a>
         <ng-template #elseBlock>
-          <a class="nav-link " (click)="follow()"  tabindex="-1" aria-disabled="true">Takip Et</a>
+         
         </ng-template>
       </li>
     </ul> 

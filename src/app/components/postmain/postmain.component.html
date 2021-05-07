@@ -23,8 +23,8 @@
             <div class="col-sm-5 col-md-6 col-12 pb-4">
                 <div *ngFor="let post of posts" class="comment mt-4 text-justify float-left"> <img src="assets/img/default-user-image.png" alt="" class="rounded-circle" width="40" height="40">
                     <h4 style="margin-left: 10px;">{{post.uniName}}</h4><span>- 20 October, 2018</span> <br><br>
-                    <p style="width: 900px;height: 50px;" >{{post.uniPost}}</p><button (click)="postDelete(post)" 
-                    style="margin-left: 930px;margin-bottom: 20px;padding-left: 20px;padding-right: 20px;background-color: red;color: white;"><b>Paylaşım Sil</b></button> 
+                    <p style="width: 900px;height: 50px;" >{{post.uniPost}}</p><button class="btn btn-danger" (click)="postDelete(post)" 
+                    style="margin-left: 1115px;margin-bottom: 20px;padding-left: 20px;padding-right: 20px;"><b>Paylaşım Sil</b></button> 
                 </div>
                 
             </div>

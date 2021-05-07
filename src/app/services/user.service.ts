@@ -33,9 +33,9 @@ export class UserService {
     return this.httpClient.post<ResponseModel>(newPath,user);
     
   }
-  getClaims(userId:number):Observable<ListResponseModel<ClaimModel>>{
-    let newPath=environment.apiUrl+"users/getclaims?userId="+userId;
-    return this.httpClient.get<ListResponseModel<ClaimModel>>(newPath);
+  getClaims(userId:number):Observable<ListResponseModel<UserOperationModel>>{
+    let newPath=environment.apiUrl+"users/getclaimsbyuserid?userId="+userId;
+    return this.httpClient.get<ListResponseModel<UserOperationModel>>(newPath);
   }
   getAllClaims():Observable<ListResponseModel<ClaimModel>>{
     let newPath=environment.apiUrl+"users/getallclaims";
@@ -43,6 +43,10 @@ export class UserService {
   }
   updateClaim(userOp:UserOperationModel):Observable<ResponseModel>{
     let newPath=environment.apiUrl+"users/postclaim";
+    return this.httpClient.post<ResponseModel>(newPath,userOp);
+  }
+  deleteClaim(userOp:UserOperationModel):Observable<ResponseModel>{
+    let newPath=environment.apiUrl+"users/deleteclaim";
     return this.httpClient.post<ResponseModel>(newPath,userOp);
   }
 

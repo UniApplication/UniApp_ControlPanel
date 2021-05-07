@@ -7,6 +7,7 @@ import { ResponseModel } from '../models/ResponseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { Univercity } from '../models/univercity';
 import { UnivercityDetail } from '../models/univercityDetailModel';
+import { UnivercityImageModel } from '../models/univercityImageModel';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,14 @@ export class UnivercityDetailService {
   uniUpdate(univercity:Univercity):Observable<ResponseModel>{
     let newPath = environment.apiUrl + "univercities/update";
     return this.httpClient.post<ResponseModel>(newPath,univercity);
+  }
+  getUnivercityImage(univercityId:Number):Observable<SingleResponseModel<UnivercityImageModel>>{
+
+    let newPath=environment.apiUrl+"univercityimages/getbyunivercityid?univercityId="+univercityId;
+    return this.httpClient.get<SingleResponseModel<UnivercityImageModel>>(newPath);
+  }
+  addImage(formData: FormData): Observable<ResponseModel> {
+    let newPath=environment.apiUrl+"univercityimages/add";
+    return this.httpClient.post<ResponseModel>(newPath,formData);
   }
 }

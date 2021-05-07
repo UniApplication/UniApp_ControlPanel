@@ -14,7 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserUpdateComponent implements OnInit {
   ClaimUpdateForm: FormGroup;
-  userclaims: ClaimModel[];
+  userclaims: UserOperationModel[];
   claims: ClaimModel[];
   currentClaim: ClaimModel;
 
@@ -82,5 +82,20 @@ export class UserUpdateComponent implements OnInit {
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
+  }
+  deleteClaim(claim:UserOperationModel){
+    this.userService.deleteClaim(claim).subscribe(
+      (response) => {
+        this.toastrService.success(response.message, 'Başarılı');
+        window.location.reload();
+      },
+      (responseError) => {
+        console.log(responseError.error)
+        this.toastrService.error(
+          responseError.error,
+          'Hata'
+        );
+      }
+    );
   }
 }
