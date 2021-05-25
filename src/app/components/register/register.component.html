@@ -11,14 +11,18 @@
       <h5 >Kayıt Ol</h5>
       <form [formGroup]="registerForm" class="p-5 border rounded-3 bg-light">
         <div class="form-floating mb-3">
+          <label for="">İsminiz</label> 
           <input
             formControlName="firstName"
             type="text"
             class="form-control"
-            placeholder="Ad"
+            placeholder="İsminiz"
+            
+            name="İsminiz"
           />
         </div>
         <div class="form-floating mb-3">
+          <label for="">Soyadınız</label> 
           <input
             formControlName="lastName"
             type="text"
@@ -27,6 +31,7 @@
           />
         </div>
         <div class="form-floating mb-3">
+          <label for="">E-postanız</label> 
           <input
             formControlName="email"
             type="email"
@@ -36,6 +41,7 @@
           />
         </div>
         <div class="form-floating mb-3">
+          <label for="">Şifreniz</label> 
           <input
             formControlName="password"
             type="password"

@@ -62,7 +62,7 @@ postDelete(post:PostDetail){
       this.toastrService.info(response.message)
       window.location.reload();
     },responseError=>{
-      this.toastrService.info(responseError.message)
+      this.toastrService.error("Yetki Reddedildi")
     })
   
 }
