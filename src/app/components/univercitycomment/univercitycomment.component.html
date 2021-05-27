@@ -1,8 +1,9 @@
 <div *ngFor="let comment of comments">
 <div class="card">
     <div class="card-header">
-      {{comment.userName}}
-      <a style="align-content: space-around;" (click)="deleteComment(comment)" class="btn btn-primary">Delete</a>
+     <b> {{comment.userName}}</b>
+      <a (click)="deleteComment(comment)" 
+      class="btn btn-danger" style="margin-left: 40px;">Delete</a>
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">

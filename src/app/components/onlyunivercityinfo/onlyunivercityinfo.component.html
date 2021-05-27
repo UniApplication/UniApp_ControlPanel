@@ -1,10 +1,11 @@
 <div *ngIf="univercity" class="card-body">
     <h5 class="card-title">{{univercity.univercityName}}</h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item text-center">{{univercity.univercityRector}}</li>
-      <li class="list-group-item text-center">{{univercity.cityName}}</li>
-      <li class="list-group-item text-center">{{univercity.starCount}}</li>
-      <li class="list-group-item text-center">{{univercity.univercityDescription}}</li>
+      <li class="list-group-item "> <b>Ad:</b> {{univercity.univercityName}}</li>
+      <li class="list-group-item "> <b>Rektör:</b> {{univercity.univercityRector}}</li>
+      <li class="list-group-item "> <b>İl:</b> {{univercity.cityName}}</li>
+      <li class="list-group-item "> <b>Yıldız:</b> {{univercity.starCount}}</li>
+      <li class="list-group-item "> <b>Açıklama:</b> {{univercity.univercityDescription}}</li>
     </ul>
   </div>
 
